@@ -18,7 +18,7 @@ assistant on your local machine. The `restaurantbot` consists of the following f
 - **run.py** contains code to train a Rasa model and use it to parse some text
 
 ## How to use this example?
-
+Adapted with https://github.com/RasaHQ/tutorial-rasa-alexa/blob/master/alexa_connector.py.  
 To train your restaurant bot, execute
 ```
 rasa train
@@ -41,3 +41,4 @@ For more information about the individual commands, please check out our
 
 ## Encountered any issues?
 Let us know about it by posting on [Rasa Community Forum](https://forum.rasa.com)!
+
