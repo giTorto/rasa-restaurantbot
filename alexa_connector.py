@@ -39,6 +39,10 @@ class AlexaConnector(InputChannel):
             # check to see if the user is trying
             # to launch the skill
             intenttype = payload["request"]["type"]
+            session_object = payload.get("session")
+            session_id = session_object.get('sessionId')
+            user_id = session_object.get('user',{}).get("userId")
+            sender_id = user_id + session_id
 
             # if the user is starting the skill, let them
             # know it worked & what to do next
@@ -64,7 +68,7 @@ class AlexaConnector(InputChannel):
 
                     # send the user message to Rasa &
                     # wait for the response
-                    await on_new_message(UserMessage(text, out))
+                    await on_new_message(UserMessage(text, out,sender_id=sender_id))
                     # extract the text from Rasa's response
                     responses = [m["text"] for m in out.messages]
                     if len(responses) >0:
