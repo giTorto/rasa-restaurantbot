@@ -1,8 +1,7 @@
-
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "text mood bot",
+            "invocationName": "restaurant booking assistant",
             "intents": [
                 {
                     "name": "ReturnUserInput",
