@@ -36,6 +36,10 @@ rasa run actions
 rasa run -m models --endpoints endpoints.yml
 ```
 
+
+## Linking to Alexa Skill
+Given the ngrok url, concatenate the following suffix: `webhooks/alexa_assistant/webhook`
+
 For more information about the individual commands, please check out our 
 [documentation](http://rasa.com/docs/rasa/user-guide/command-line-interface/).
 
