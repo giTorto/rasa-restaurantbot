@@ -1,2 +1,2 @@
-rasa
-rasa-sdk
+rasa==1.9.5
+rasa-sdk==1.9.0
