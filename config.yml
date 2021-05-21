@@ -1,18 +1,16 @@
 language: en
-
 pipeline:
-  - name: "SpacyNLP"
-  - name: "SpacyTokenizer"
-  - name: "SpacyFeaturizer"
-  - name: "LexicalSyntacticFeaturizer"
-  - name: "DIETClassifier"
-    epochs: 100
-  - name: "EntitySynonymMapper"
-
+- name: SpacyNLP
+- name: SpacyTokenizer
+- name: SpacyFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: DIETClassifier
+  epochs: 50
+- name: EntitySynonymMapper
 policies:
-  - name: "policy.RestaurantPolicy"
-    batch_size: 100
-    epochs: 100
-    validation_split: 0.2
-  - name: MemoizationPolicy
-  - name: MappingPolicy
+- name: TEDPolicy
+  batch_size: 100
+  epochs: 5
+  validation_split: 0.2
+- name: MemoizationPolicy
+- name: RulePolicy
