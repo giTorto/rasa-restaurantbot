@@ -65,7 +65,6 @@ responses:
   utter_on_it:
     - text: "I'm on it."
     - text: "Thanks"
-    -
 
 actions:
 - action_search_restaurants
