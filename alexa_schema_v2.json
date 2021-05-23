@@ -23,6 +23,20 @@
                     ]
                 },
                 {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "help",
+                        "how can you help me"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "cancel",
+                        "reset"
+                    ]
+                },
+                {
                     "name": "AMAZON.NavigateHomeIntent",
                     "samples": []
                 }
