@@ -72,7 +72,7 @@ class AlexaConnector(InputChannel):
                     # extract the text from Rasa's response
                     responses = [m["text"] for m in out.messages]
                     if len(responses) >0:
-                        message = responses[0]
+                        message = " ".join(responses)
                     else:
                         message = "Sorry, can you repeat that please?"
                         logger.error("No Response returned from the Assistant")

@@ -689,6 +689,7 @@ nlu:
     - can you book a table in [rome](location) in a [moderate]{"entity": "price", "value": "mid"} price range with [british](cuisine) food for [four]{"entity": "people", "value": "4"} people
     - [cheap](price) restaurant serving unintelligible food
     - in the [west](location)
+    - [rome](location)
     - [creative](cuisine) food
     - im looking for a restaurant in the [east](location) part of town serving [japanese](cuisine) food
     - im looking for a restaurant in the [north](location) part of town serving [jamaican](cuisine) food

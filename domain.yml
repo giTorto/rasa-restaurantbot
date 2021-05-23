@@ -10,7 +10,8 @@ slots:
   info:
     type: text
   matches:
-    type: unfeaturized
+    type: list
+    influence_conversation: false
 
 entities:
 - location
@@ -62,7 +63,9 @@ responses:
       - title: "expensive"
         payload: "expensive"
   utter_on_it:
-    - text: "I'm on it"
+    - text: "I'm on it."
+    - text: "Thanks"
+    -
 
 actions:
 - action_search_restaurants
