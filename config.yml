@@ -6,13 +6,15 @@ pipeline:
 - name: SpacyFeaturizer
 - name: LexicalSyntacticFeaturizer
 - name: DIETClassifier
-  epochs: 50
+  epochs: 21
   constrain_similarities: true
+  evaluate_every_number_of_epochs: 5
 - name: EntitySynonymMapper
 policies:
 - name: TEDPolicy
   batch_size: 100
-  epochs: 5
+  evaluate_every_number_of_epochs: 1
+  epochs: 3
   validation_split: 0.2
 - name: MemoizationPolicy
 - name: RulePolicy

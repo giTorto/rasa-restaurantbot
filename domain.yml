@@ -2,7 +2,7 @@ slots:
   cuisine:
     type: text
   people:
-    type: text
+    type: float
   location:
     type: text
   price:
@@ -12,6 +12,19 @@ slots:
   matches:
     type: list
     influence_conversation: false
+
+forms:
+  restaurant_form:
+    cuisine_type:
+    - type: from_entity
+      entity: cuisine
+    people:
+    - type: from_entity
+      entity: people
+    location:
+    - type: from_entity
+      entity: location
+
 
 entities:
 - location
@@ -41,7 +54,7 @@ responses:
   utter_ack_findalternatives:
     - text: "ok let me see what else there is"
   utter_ack_makereservation:
-    - text: "ok making a reservation for restaurant (price={price} cuisine={cuisine}) in location={location} for count={people}? "
+    - text: "ok making a reservation for {price} {cuisine} restaurant in {location} for {people}? "
       buttons:
         - title: "thank you"
           payload: "thank you"
@@ -52,7 +65,7 @@ responses:
   utter_ask_location:
     - text: "where?"
   utter_ask_moreupdates:
-    - text: "if you'd like to modify anything else, please tell me what. This is what I currently have: {location} (price: {price}, cuisine: {cuisine}) for {people} people."
+    - text: "if you'd like to modify anything else, please tell me what. This is what I currently have: a reservation for {price} {cuisine} restaurant in {location} for {people}"
   utter_ask_numpeople:
     - text: "for how many people?"
   utter_ask_price:
@@ -65,6 +78,7 @@ responses:
   utter_on_it:
     - text: "I'm on it."
     - text: "Thanks"
+
 
 actions:
 - action_search_restaurants
