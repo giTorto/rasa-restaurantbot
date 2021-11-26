@@ -38223,3 +38223,29 @@ stories:
   - action: utter_ack_makereservation
   - intent: thankyou
   - action: utter_goodbye
+- story: Story from Conversation ID 560adde5dbc44271ab48ef3b65dbe0bc
+  steps:
+  - action: utter_ask_location
+  - intent: inform
+    entities:
+    - location: rome
+  - slot_was_set:
+    - location: rome
+  - action: utter_on_it
+  - action: utter_ask_cuisine
+  - intent: inform
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: action_default_fallback
+  - slot_was_set:
+    - location: rome
+  - slot_was_set:
+    - cuisine: italian
+  - action: utter_ask_moreupdates
+  - intent: deny
+  - action: utter_ack_findalternatives
+  - action: action_suggest
+  - intent: thankyou
+  - action: utter_goodbye

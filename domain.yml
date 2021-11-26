@@ -1,90 +1,111 @@
-slots:
-  cuisine:
-    type: text
-  people:
-    type: float
-  location:
-    type: text
-  price:
-    type: text
-  info:
-    type: text
-  matches:
-    type: list
-    influence_conversation: false
-
-forms:
-  restaurant_form:
-    cuisine_type:
-    - type: from_entity
-      entity: cuisine
-    people:
-    - type: from_entity
-      entity: people
-    location:
-    - type: from_entity
-      entity: location
-
-
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- inform:
+    use_entities: true
+- thankyou:
+    use_entities: true
+- request_info:
+    use_entities: true
 entities:
 - location
 - info
 - people
 - price
 - cuisine
-
-intents:
- - greet
- - affirm
- - deny
- - inform
- - thankyou
- - request_info
-
+slots:
+  cuisine:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  people:
+    type: rasa.shared.core.slots.FloatSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+    max_value: 1.0
+    min_value: 0.0
+  location:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  price:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  info:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  matches:
+    type: rasa.shared.core.slots.ListSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
 responses:
   utter_greet:
-    - text: "hey there!"
+  - text: hey there!
   utter_goodbye:
-    - text: "goodbye :("
-    - text: "Bye-bye"
+  - text: goodbye :(
+  - text: Bye-bye
   utter_default:
-    - text: "default message"
+  - text: default message
   utter_ack_dosearch:
-    - text: "ok let me see what I can find"
+  - text: ok let me see what I can find
   utter_ack_findalternatives:
-    - text: "ok let me see what else there is"
+  - text: ok let me see what else there is
   utter_ack_makereservation:
-    - text: "ok making a reservation for {price} {cuisine} restaurant in {location} for {people}? "
-      buttons:
-        - title: "thank you"
-          payload: "thank you"
+  - buttons:
+    - payload: thank you
+      title: thank you
+    text: 'ok making a reservation for {price} {cuisine} restaurant in {location} for {people}? '
   utter_ask_cuisine:
-    - text: "what kind of cuisine would you like?"
+  - text: what kind of cuisine would you like?
   utter_ask_howcanhelp:
-    - text: "how can I help you?"
+  - text: how can I help you?
   utter_ask_location:
-    - text: "where?"
+  - text: where?
   utter_ask_moreupdates:
-    - text: "if you'd like to modify anything else, please tell me what. This is what I currently have: a reservation for {price} {cuisine} restaurant in {location} for {people}"
+  - text: "if you'd like to modify anything else, please tell me what. This is what I currently have: a reservation for {price} {cuisine} restaurant in {location} for {people}"
   utter_ask_numpeople:
-    - text: "for how many people?"
+  - text: for how many people?
   utter_ask_price:
-    - text: "in which price range?"
-      buttons:
-      - title: "cheap"
-        payload: "cheap"
-      - title: "expensive"
-        payload: "expensive"
+  - buttons:
+    - payload: cheap
+      title: cheap
+    - payload: expensive
+      title: expensive
+    text: in which price range?
   utter_on_it:
-    - text: "I'm on it."
-    - text: "Thanks"
-
-
+  - text: I'm on it.
+  - text: Thanks
 actions:
 - action_search_restaurants
 - action_suggest
-
-session_config:
-  session_expiration_time: 60  # value in minutes
-  carry_over_slots_to_new_session: true
-  
+forms:
+  restaurant_form:
+    required_slots:
+      cuisine_type:
+      - entity: cuisine
+        type: from_entity
+      location:
+      - entity: location
+        type: from_entity
+      people:
+      - entity: people
+        type: from_entity
+e2e_actions: []

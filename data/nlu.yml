@@ -86,6 +86,7 @@ nlu:
     - good evening
     - morning
     - good afternoon
+    - [helli](cuisine)
 - intent: inform
   examples: |
     - [afghan](cuisine) food
@@ -704,6 +705,7 @@ nlu:
     - [african](cuisine) food
     - im looking for a restaurant in the [south](location) part of town serving [korean](cuisine) food
     - i want to find a [expensive](price) restaurant in the [south](location) part of town
+    - i want to find a [expensive](price) restaurant in the [south](location) part of town for [5](people)
     - i want a [moderately]{"entity": "price", "value": "moderate"} priced
     - [canapes](cuisine) food
     - ok how about [chinese](cuisine) food
@@ -711,6 +713,11 @@ nlu:
     - uh [world](cuisine) food
     - i need a [cheap](price) restaurant
     - im looking for [thai](cuisine)
+    - I want to book a table for [3](people) people
+    - [3](people) people
+    - in [rome](location)
+    - I want to book a table for [4](people) people
+    - [italian](cuisine) cuisine
 - intent: request_info
   examples: |
     - do you have their [address](info)
@@ -750,6 +757,7 @@ nlu:
     - uh okay thank you good bye
     - thank you bye
     - um okay thank you good bye
+    - that's good for me
 - synonym: moderate
   examples: |
     - moderately
@@ -774,3 +782,6 @@ nlu:
 - synonym: lo
   examples: |
     - cheap
+- regex: people
+  examples: |
+  - \d{1,2}
